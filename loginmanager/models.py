@@ -10,3 +10,9 @@ class Login(models.Model):
     numero = models.CharField(max_length = 10)
     def __str__(self):
         return '%s %s' % (self.value, self.value)
+
+
+#Para Considerar: 
+#El autenticador recibiría los parámetros pasados al login y vería si el usuario se encuentra registrado
+#Si se encuentra registrado, va a la página de signup y le muestra su información
+#De lo contrario, le muestra los campos vacíos para que los llene.
