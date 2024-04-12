@@ -1,7 +1,7 @@
 # TODO: Arreglar import
-from otra_app_solicitudes.logic import procesar_solicitud_de_solicitudes
+from otra_app_requests.logic import process_request_requests
 
-def enviar_solicitud_a_manejador_de_solicitudes(datos_solicitud):
-    # TODO: Lógica para enviar la solicitud al manejador de solicitudes: llamar a la función correspondiente en la otra aplicación
-    respuesta = procesar_solicitud_de_solicitudes(datos_solicitud)
-    return respuesta
+def send_request_to_requests_handler(request_data):
+    # TODO: Lógica para enviar la request al manejador de requestes: llamar a la función correspondiente en la otra aplicación
+    response = process_request_requests(request_data)
+    return response

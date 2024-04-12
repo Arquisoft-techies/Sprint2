@@ -1,29 +1,25 @@
 from django.http import HttpRequest, JsonResponse
-from .logic import procesar_solicitud_producto, procesar_solicitud_servicio
+from .logic import send_request_to_products_handler, send_request_to_services_handler
 
-def ofertas_view(request: HttpRequest):
+def offers_view(request: HttpRequest):
     if request.method == 'POST':
-        datos_solicitud = request.POST.get('datos')  # Obtener datos de la solicitud
+        request_data = request.POST.get('datos')  # Obtener datos de la request
 
-        # Determinar a qué manejador enviar la solicitud
-        tipo_solicitud = determinar_tipo_solicitud(datos_solicitud)
-        if tipo_solicitud == 'producto':
-            respuesta = procesar_solicitud_producto(datos_solicitud)
-        elif tipo_solicitud == 'servicio':
-            respuesta = procesar_solicitud_servicio(datos_solicitud)
+        # Determinar a qué manejador enviar la request
+        request_type = determine_request_type(request_data)
+        if request_type == 'producto':
+            response = send_request_to_products_handler(request_data)
+        elif request_type == 'servicio':
+            response = send_request_to_services_handler(request_data)
         else:
             return JsonResponse({'error': 'Tipo de solicitud no válido'}, status=400)
 
-        return JsonResponse(respuesta)
+        return JsonResponse(response)
     else:
         return JsonResponse({'error': 'Método no permitido'}, status=405)
 
-def determinar_tipo_solicitud(datos_solicitud):
-    # Determinar si la solicitud se relaciona con productos o servicios
-    if 'tipo' in datos_solicitud:
-        tipo = datos_solicitud['tipo']
-        if tipo == 'producto':
-            return 'producto'
-        elif tipo == 'servicio':
-            return 'servicio'
+def determine_request_type(request_data):
+    if 'tipo' in request_data:
+        type = request_data['tipo']
+        return type
     return None

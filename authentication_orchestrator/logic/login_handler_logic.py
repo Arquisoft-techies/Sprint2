@@ -1,7 +1,7 @@
 # TODO: Arreglar import
-from otra_app_login.logic import procesar_solicitud_de_login
+from otra_app_login.logic import process_request_login
 
-def enviar_solicitud_a_manejador_de_login(datos_solicitud):
-    # TODO: Lógica para enviar la solicitud al manejador de login: llamar a la función correspondiente en la otra aplicación
-    respuesta = procesar_solicitud_de_login(datos_solicitud)
-    return respuesta
+def send_request_to_login_handler(request_data):
+    # TODO: Lógica para enviar la request al manejador de login: llamar a la función correspondiente en la otra aplicación
+    response = process_request_login(request_data)
+    return response
