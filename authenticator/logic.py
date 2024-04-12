@@ -10,19 +10,20 @@ def singup(existe, profesion, actividad, empresa, ingresos, deudas, idData):
         actualizarDatos(profesion, actividad, empresa, ingresos, deudas, idData)
 
 def createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp): #Añadir OTP
-    variable = DatosInicial(nombres, apellidos, pais, ciudad, correo, numero, "", "", "", 0.0, 0.0, 0.0)
-    variable.save()
+    datos = DatosInicial(nombres, apellidos, pais, ciudad, correo, numero, "", "", "", 0.0, 0.0, 0.0)
+    datos.save()
 
 def login(nombres, apellidos, pais, ciudad, correo, numero, otp):
     createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp) #Añadir OTP
     
 def actualizarDatos(profesion, actividad, empresa, ingresos, deudas, idData):
-    variable = DatosInicial.objects.get(id=idData)
-    variable.profesion = profesion
-    variable.actividadEconomica = actividad
-    variable.empresa = empresa
-    variable.ingresos = ingresos
-    variable.deudas = deudas
+    datos = DatosInicial.objects.get(id=idData)
+    datos.profesion = profesion
+    datos.actividadEconomica = actividad
+    datos.empresa = empresa
+    datos.ingresos = ingresos
+    datos.deudas = deudas
+    datos.save()
 
 def buscarPorOTP(numero):
     variable = DatosInicial.objects.get(otp = numero)
