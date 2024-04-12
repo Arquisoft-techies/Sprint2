@@ -1,3 +1,4 @@
+# TODO: Arreglar import
 from otra_app_usuarios.logic import procesar_solicitud_de_usuarios
 
 def enviar_solicitud_a_manejador_de_usuarios(datos_solicitud):
