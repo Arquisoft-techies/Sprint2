@@ -1,3 +1,4 @@
+# TODO: Arreglar import
 from otra_app_productos.logic import procesar_solicitud_de_productos
 
 def enviar_solicitud_a_manejador_de_productos(datos_solicitud):

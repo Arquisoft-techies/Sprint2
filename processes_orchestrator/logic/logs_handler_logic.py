@@ -1,3 +1,4 @@
+# TODO: Arreglar import
 from otra_app_logs.logic import procesar_solicitud_de_logs
 
 def enviar_solicitud_a_manejador_de_logs(datos_solicitud):
