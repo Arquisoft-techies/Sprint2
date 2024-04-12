@@ -6,3 +6,6 @@ class Signup(models.Model):
     empresa = models.CharField(max_length = 50) 
     ingresos = models.FloatField()
     deudas = models.FloatField()
+    
+    def __str__(self):
+        return '%s %s' % (self.value, self.value)
