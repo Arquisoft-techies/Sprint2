@@ -1,29 +1,25 @@
 from django.http import HttpRequest, JsonResponse
-from .logic import procesar_solicitud_login, procesar_solicitud_usuarios
+from .logic import send_request_to_login_handler, send_request_to_users_handler
 
-def ofertas_view(request: HttpRequest):
+def offers_view(request: HttpRequest):
     if request.method == 'POST':
-        datos_solicitud = request.POST.get('datos')  # Obtener datos de la solicitud
+        request_data = request.POST.get('datos')  # Obtener datos de la request
 
-        # Determinar a qué manejador enviar la solicitud
-        tipo_solicitud = determinar_tipo_solicitud(datos_solicitud)
-        if tipo_solicitud == 'login':
-            respuesta = procesar_solicitud_login(datos_solicitud)
-        elif tipo_solicitud == 'usuarios':
-            respuesta = procesar_solicitud_usuarios(datos_solicitud)
+        # Determinar a qué manejador enviar la request
+        request_type = determine_request_type(request_data)
+        if request_type == 'login':
+            response = send_request_to_login_handler(request_data)
+        elif request_type == 'usuarios':
+            response = send_request_to_users_handler(request_data)
         else:
-            return JsonResponse({'error': 'Tipo de solicitud no válido'}, status=400)
+            return JsonResponse({'error': 'type de request no válido'}, status=400)
 
-        return JsonResponse(respuesta)
+        return JsonResponse(response)
     else:
         return JsonResponse({'error': 'Método no permitido'}, status=405)
 
-def determinar_tipo_solicitud(datos_solicitud):
-    # Determinar si la solicitud se relaciona con productos o servicios
-    if 'tipo' in datos_solicitud:
-        tipo = datos_solicitud['tipo']
-        if tipo == 'login':
-            return 'login'
-        elif tipo == 'usuarios':
-            return 'usuarios'
+def determine_request_type(request_data):
+    if 'tipo' in request_data:
+        type = request_data['tipo']
+        return type
     return None

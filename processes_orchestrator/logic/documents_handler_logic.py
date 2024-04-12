@@ -1,6 +1,7 @@
-from otra_app_documentos.logic import procesar_solicitud_de_documentos
+# TODO: Arreglar import
+from otra_app_documentos.logic import process_request_documents
 
-def enviar_solicitud_a_manejador_de_documentos(datos_solicitud):
-    # TODO: Lógica para enviar la solicitud al manejador de documentos: llamar a la función correspondiente en la otra aplicación
-    respuesta = procesar_solicitud_de_documentos(datos_solicitud)
-    return respuesta
+def send_request_to_documents_handler(request_data):
+    # TODO: Lógica para enviar la request al manejador de documentos: llamar a la función correspondiente en la otra aplicación
+    response = process_request_documents(request_data)
+    return response
