@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'loginmanager',
-    'requestmanager'
+    'requestmanager',
+    'offers_orchestrator',
+    'processes_orchestrator',
+    'authentication_orchestrator'
 ]
 
 MIDDLEWARE = [
