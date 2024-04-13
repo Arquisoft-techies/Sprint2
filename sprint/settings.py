@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'authenticator',
     'otp',
     'signup',
-    'usermanger'
+    'usermanager'
 ]
 
 MIDDLEWARE = [
