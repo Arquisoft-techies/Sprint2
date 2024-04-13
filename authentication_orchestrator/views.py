@@ -1,24 +1,25 @@
 import random
 from django.http import HttpRequest, JsonResponse
 from .logic import send_request_to_login_handler, send_request_to_users_handler
-from loginmanager import convertir_datos_JSON, crear_datos_iniciales
+from authenticator import crear_datos_iniciales, generar_datos_completos
 from requestmanager import crear_solicitud
-from usersmanager import determinar_usuario_existe, almacenar_datos
+from usermanager import determinar_usuario_existe, almacenar_datos
+from otp import generar_otp
 
 def offers_view(request: HttpRequest):
     if request.method == 'POST':
         request_data = request.POST.get('datos')  # Obtener datos de la request
 
-        basic_info = convertir_datos_JSON() # Metodo de manejador Login
+        basic_info = crear_datos_iniciales() # Metodo de manejador Login
 
-        otp = generar_otp() # TODO: Metodo de generacion otp en app otp
+        otp = generar_otp(6) # TODO: Metodo de generacion otp en app (api) otp
 
         crear_datos_iniciales(basic_info, otp) # Metodo de manejador login
 
         usuario_existe = determinar_usuario_existe(basic_info) # Metodo en manejador usuarios
 
         if usuario_existe == False:
-            datos = generar_info(basic_info, False) # TODO: Generar datos aleatorios del usuario, metodo en login
+            datos = generar_datos_completos(basic_info, False) # Generar datos aleatorios del usuario, metodo en login
             almacenar_datos(datos) # Metodo en manejador Usuarios
             print("El usuario fue creado exitosamente") # TODO: Mostrar en UI que se creo el usuario
         else:
@@ -35,11 +36,6 @@ def offers_view(request: HttpRequest):
         
         resultado_tdc = crear_solicitud(request_tdc) # Metodo de manejador Solicitudes
         print(resultado_tdc)
-
-
-
-
-
 
         '''# Determinar a qué manejador enviar la request
         request_type = determine_request_type(request_data)

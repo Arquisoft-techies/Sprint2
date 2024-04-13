@@ -1,3 +1,6 @@
-from django.shortcuts import render
+import random
+import string
 
-# Create your views here.
+def generar_otp(longitud):
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(caracteres) for _ in range(longitud))

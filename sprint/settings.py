@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'requestmanager',
     'offers_orchestrator',
     'processes_orchestrator',
-    'authentication_orchestrator'
+    'authentication_orchestrator',
+    'authenticator',
+    'otp',
+    'signup',
+    'usermanager'
 ]
 
 MIDDLEWARE = [
