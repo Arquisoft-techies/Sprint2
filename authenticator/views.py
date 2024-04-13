@@ -29,7 +29,7 @@ def crearDatosInciales():
     area_code = random.randint(300, 360)
     prefix = random.randint(000, 999)
     line_number = random.randint(0000, 9999)
-    phone_number = f"({area_code}) {prefix}-{line_number}"
+    phone_number = f"({area_code}) {prefix} {line_number}"
     name = random.choice(nombres)
     apellidos = random.choice(lastNames)
     pais = "Colombia"
