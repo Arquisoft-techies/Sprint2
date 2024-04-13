@@ -12,6 +12,7 @@ def signup(existe, profesion, actividad, empresa, ingresos, deudas, number):
 def createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp): 
     datos = DatosInicial(nombres, apellidos, pais, ciudad, correo, numero, "", "", "", 0.0, 0.0, otp)
     datos.save()
+    return datos
 
 def login(nombres, apellidos, pais, ciudad, correo, numero, otp):
     createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp) 

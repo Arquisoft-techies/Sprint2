@@ -36,11 +36,9 @@ def crearDatosInciales():
     ciudad = random.choice(ciudades)
     correo = email
     numero = phone_number
-    data = {
-                "datos recibidos"
-    }
-    login(name, apellidos, pais, ciudad, correo, numero)
-    return JsonResponse(data)
+    datos = login(name, apellidos, pais, ciudad, correo, numero)
+    serializada = serialize('json', datos)
+    return JsonResponse(serializada, safe=False)
 
 # def obtenerOTP(request):
     #if request.method == "POST":
