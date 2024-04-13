@@ -1,5 +1,6 @@
 from django.http import HttpRequest, JsonResponse
 from logic import *
+from usermanager.logic.actualizar_datos_logic import actualizar_datos_cliente
 from .logic import consultar_datos_logic, buscar_informacion_cliente
 
 def determinar_usuario_existe(basic_info):
@@ -11,7 +12,7 @@ def determinar_usuario_existe(basic_info):
     else:
         return None
 
-def consultar_usuario(basic_info):
+def consultar_usuario(basic_info, request: HttpRequest):
     if request.method == 'GET':
         numero_identificacion = request.GET.get('numero_identificacion')
         datos_cliente = buscar_informacion_cliente(numero_identificacion)
