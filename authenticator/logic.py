@@ -2,19 +2,19 @@ from .models import Login
 from .models import Signup
 from .models import DatosInicial
 
-def singup(existe, profesion, actividad, empresa, ingresos, deudas, idData):
+def signup(existe, profesion, actividad, empresa, ingresos, deudas, idData):
     if(existe == True):
         #llamar a componente responsable para mostrar la info del usuario
         return ""
     else:
         actualizarDatos(profesion, actividad, empresa, ingresos, deudas, idData)
 
-def createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp): #Añadir OTP
-    datos = DatosInicial(nombres, apellidos, pais, ciudad, correo, numero, "", "", "", 0.0, 0.0, 0.0)
+def createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp): 
+    datos = DatosInicial(nombres, apellidos, pais, ciudad, correo, numero, "", "", "", 0.0, 0.0, otp)
     datos.save()
 
 def login(nombres, apellidos, pais, ciudad, correo, numero, otp):
-    createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp) #Añadir OTP
+    createDatosInicial(nombres, apellidos, pais, ciudad, correo, numero, otp) 
     
 def actualizarDatos(profesion, actividad, empresa, ingresos, deudas, idData):
     datos = DatosInicial.objects.get(id=idData)
