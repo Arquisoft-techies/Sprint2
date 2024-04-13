@@ -1,5 +1,5 @@
 from django.http import HttpRequest, JsonResponse
-from .logic import *
+from logic import *
 
 def determinar_usuario_existe(basic_info):
     cliente_existe = consultar_datos_logic.usuario_existe(basic_info)
@@ -23,7 +23,7 @@ def consultar_usuario(basic_info):
     else:
         return JsonResponse({'error': 'Método no permitido'}, status=405)
 
-def actualizar_cliente(request):
+def actualizar_cliente(request: HttpRequest):
     if request.method == 'POST':
         numero_identificacion = request.POST.get('numero_identificacion')
 
