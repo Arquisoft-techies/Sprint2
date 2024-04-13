@@ -1,5 +1,6 @@
 from django.http import HttpRequest, JsonResponse
 from logic import *
+from .logic import consultar_datos_logic, buscar_informacion_cliente
 
 def determinar_usuario_existe(basic_info):
     cliente_existe = consultar_datos_logic.usuario_existe(basic_info)
@@ -28,7 +29,7 @@ def actualizar_cliente(request: HttpRequest):
         numero_identificacion = request.POST.get('numero_identificacion')
 
         nuevos_datos = {
-            'nombre': request.POST.get('nombre').
+            'nombre': request.POST.get('nombre'),
             'apellidos': request.POST.get('apellidos')
         }
 

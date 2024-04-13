@@ -19,7 +19,7 @@ def offers_view(request: HttpRequest):
         usuario_existe = determinar_usuario_existe(basic_info) # Metodo en manejador usuarios
 
         if usuario_existe == False:
-            datos = generar_datos_completos(basic_info, False) # TODO: Generar datos aleatorios del usuario, metodo en login
+            datos = generar_datos_completos(basic_info, False) # Generar datos aleatorios del usuario, metodo en login
             almacenar_datos(datos) # Metodo en manejador Usuarios
             print("El usuario fue creado exitosamente") # TODO: Mostrar en UI que se creo el usuario
         else:
