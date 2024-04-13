@@ -1,3 +1,4 @@
+import random
 from django.http import HttpRequest, JsonResponse
 from .logic import send_request_to_login_handler, send_request_to_users_handler
 
@@ -13,6 +14,27 @@ def offers_view(request: HttpRequest):
 
         crear_datos_iniciales(basic_info, otp) # Metodo de manejador login
 
+        usuario_existe = determinar_usuario_existe(basic_info) # TODO: Metodo en manejador usuarios
+
+        if usuario_existe == False:
+            datos = '' # Generar datos aleatorios del usuario
+            almacenar_datos(datos) # TODO: Metodo en manejador Usuarios
+            # Mostrar en UI que se creo el usuario
+        else:
+            # Imprimir datos
+
+        
+
+        request_tdc = HttpRequest()
+        request_tdc.method = 'POST'
+        request_tdc.POST['dato'] = 'valor'
+        request_tdc.body = b'"id": , "tipo": Tarjeta basica, "estado": En validacion'
+        request_tdc.content_type = 'application/json'
+
+        
+        resultado_tdc = crear_solicitud(request_tdc) # TODO: Metodo de manejador Login
+
+        
 
 
 
