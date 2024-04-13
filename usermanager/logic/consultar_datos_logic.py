@@ -1,3 +1,4 @@
+from authenticator.models import Login
 from .models import Cliente
 
 def usuario_existe(basic_info):
@@ -15,7 +16,7 @@ def usuario_existe(basic_info):
     return usuario_existente
 
 def obtener_informacion_cliente(basic_info):
-    nombres = basic_info.get('numero_identificacion')
+    numero_identificacion = basic_info.get('numero_identificacion')
     try:
         cliente = Cliente.objects.get(numero_identificacion=numero_identificacion)
         datos_cliente = {
