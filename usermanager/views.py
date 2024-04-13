@@ -24,7 +24,7 @@ def consultar_usuario(basic_info):
         return JsonResponse({'error': 'Método no permitido'}, status=405)
 
 def actualizar_cliente(request):
-    if reques.method == 'POST':
+    if request.method == 'POST':
         numero_identificacion = request.POST.get('numero_identificacion')
 
         nuevos_datos = {
@@ -41,4 +41,4 @@ def actualizar_cliente(request):
 
     else:
         return JsonResponse({'error': 'Método no permitido'}, status=405)
-        
+
