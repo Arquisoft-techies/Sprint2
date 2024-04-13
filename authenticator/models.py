@@ -33,8 +33,8 @@ class DatosInicial(models.Model): #Se creo para poder hacer el ejercicio de pers
     profesion = models.CharField(max_length = 50)
     actividadEconomica = models.CharField(max_length = 50) 
     empresa = models.CharField(max_length = 50) 
-    ingresos = models.FloatField()
-    deudas = models.FloatField()
+    ingresos = models.IntegerField()
+    deudas = models.IntegerField()
     otp = models.CharField(max_length = 50)
     
     def __init__(nombres, apellidos, pais, ciudad, correo, numero, profesion, actividad, empresa, ingresos, deudas, otp) -> None:
