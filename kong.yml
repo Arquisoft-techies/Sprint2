@@ -1,0 +1,37 @@
+_format_version: "2.1"
+
+services:
+  - host: instance_upstream
+    name: orquestador_de_procesos
+    protocol: http
+    routes:
+      
+      - name: processes_orchestrator
+        paths:
+          - /
+        strip_path: false
+    
+upstreams:
+  - name: instance_upstream
+    targets:
+      - target: 10.128.0.3:8080
+        weight: 100
+      - target: 10.128.0.4:8080
+        weight: 100
+      - target: 10.128.0.5:8080
+        weight: 100
+    healthchecks:
+      threshold: 66
+      active:
+        http_path: /health/
+        timeout: 5
+        healthy:
+          successes: 2
+          interval: 5
+        unhealthy:
+          tcp_failures: 2
+          interval: 5
+
+
+
+
