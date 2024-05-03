@@ -7,6 +7,8 @@ def offers_view(request: HttpRequest):
 
         # Determinar a qué manejador enviar la request
         request_type = determine_request_type(request_data)
+
+        """
         if request_type == 'logs':
             response = send_request_to_logs_handler(request_data)
         elif request_type == 'analisisriesgos':
@@ -16,7 +18,11 @@ def offers_view(request: HttpRequest):
         elif request_type == 'documentos':
             response = send_request_to_documents_handler(request_data)
         else:
-            return JsonResponse({'error': 'type de request no válido'}, status=400)
+            return JsonResponse({'error': 'type de request no válido'}, status=400)"""
+        
+        response = {
+            'message': 'Solicitud recibida y procesada exitosamente'
+        }
 
         return JsonResponse(response)
     else:
