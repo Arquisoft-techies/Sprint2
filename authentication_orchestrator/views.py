@@ -1,4 +1,4 @@
-import random
+"""import random
 from django.http import HttpRequest, JsonResponse
 from .logic import send_request_to_login_handler, send_request_to_users_handler
 from authenticator import crear_datos_iniciales, generar_datos_completos
@@ -54,4 +54,4 @@ def determine_request_type(request_data):
     if 'tipo' in request_data:
         type = request_data['tipo']
         return type
-    return None
+    return None"""

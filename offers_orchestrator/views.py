@@ -1,4 +1,4 @@
-from django.http import HttpRequest, JsonResponse
+"""from django.http import HttpRequest, JsonResponse
 from .logic import send_request_to_products_handler, send_request_to_services_handler
 
 def offers_view(request: HttpRequest):
@@ -22,4 +22,4 @@ def determine_request_type(request_data):
     if 'tipo' in request_data:
         type = request_data['tipo']
         return type
-    return None
+    return None"""
