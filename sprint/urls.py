@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from offers_orchestrator.views import offers_view
+from processes_orchestrator.views import offers_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('solcitud/', offers_view, name='solicitud'),
+    path('solcitud/', offers_view, name='solicitud')
 ]
