@@ -19,5 +19,5 @@ from processes_orchestrator.views import offers_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('solcitud/', offers_view, name='solicitud')
+    path('solicitud/', offers_view, name='solicitud')
 ]
