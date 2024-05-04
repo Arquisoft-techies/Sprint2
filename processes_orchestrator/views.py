@@ -1,5 +1,6 @@
 from django.http import HttpRequest, JsonResponse
 from .logic import send_request_to_documents_handler, send_request_to_logs_handler, send_request_to_riskanalysis_handler, send_request_to_requests_handler
+from django.shortcuts import render
 
 def offers_view(request: HttpRequest):
     if request.method == 'POST':
@@ -24,7 +25,7 @@ def offers_view(request: HttpRequest):
             'message': 'Solicitud recibida y procesada exitosamente'
         }
 
-        return JsonResponse(response)
+        return render(request, 'procesos.html', response)
     else:
         return JsonResponse({'error': 'Método no permitido'}, status=405)
 
