@@ -19,3 +19,9 @@ class SolicitudForm(forms.ModelForm):
             'ingresos': 'Ingresos',
             'status': 'Status',
         }
+
+class AprobarSolicitudForm(forms.ModelForm):
+    class Meta:
+        model = Solicitud
+        fields = ['status']  # Solo necesitas el campo 'status' para aprobar la solicitud
+        labels = {'status': 'Status'}

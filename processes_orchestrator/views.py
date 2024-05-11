@@ -78,8 +78,8 @@ def solicitud_approve(request):
             else:
                 print(form.errors)
         else:
-            return render(request, 'Solicitud/solicitudes.html', context)
-
+            form = SolicitudForm()
+        
         context = {
             'form': form,
         }
