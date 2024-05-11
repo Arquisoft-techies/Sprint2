@@ -62,6 +62,6 @@ def solicitud_create(request):
         context = {
             'form': form,
         }
-        return render(request, 'templates/crearSolicitud.html', context)
+        return render(request, 'crearSolicitud.html', context)
     else:
         return HttpResponse("Unauthorized User")
