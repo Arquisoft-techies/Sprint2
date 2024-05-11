@@ -21,6 +21,7 @@ class SolicitudForm(forms.ModelForm):
         }
 
 class AprobarSolicitudForm(forms.ModelForm):
+    Id = forms.IntegerField(label='ID de Solicitud', required=True)
     class Meta:
         model = Solicitud
         fields = ['status']  # Solo necesitas el campo 'status' para aprobar la solicitud
