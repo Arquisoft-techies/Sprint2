@@ -5,7 +5,7 @@ from sprint.auth0backend import getRole
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .logic.solicitudes_logic import crear_solicitud, get_solicitudes, get_solicitud
+from .logic.solicitudes_logic import crear_solicitud, get_solicitudes, get_solicitud, aprobar_solicitud
 from django.contrib.auth.decorators import login_required
 
 def offers_view(request: HttpRequest):
