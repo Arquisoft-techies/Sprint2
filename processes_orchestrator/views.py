@@ -85,6 +85,6 @@ def solicitud_approve(request):
         context = {
             'form': form,
         }
-        return render(request, 'solicitudes.html', context)
+        return render(request, 'aprobarSolicitud.html', context)
     else:
         return HttpResponse("Unauthorized User")
