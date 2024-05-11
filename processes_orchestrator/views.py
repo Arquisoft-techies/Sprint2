@@ -71,15 +71,16 @@ def solicitud_approve(request):
     role = getRole(request)
     if role == "Analista de Credito":
         if request.method == 'POST':
-            form = AprobarSolicitudForm(request.POST)  # Utiliza el formulario de aprobación
+            form = AprobarSolicitudForm(request.POST)
             if form.is_valid():
-                aprobar_solicitud(form)
+                solicitud_id = form.cleaned_data['solicitud_id']  # Asume que 'solicitud_id' es el campo en AprobarSolicitudForm que contiene el ID de la solicitud
+                aprobar_solicitud(solicitud_id)  # Pasar el ID de la solicitud a la función de lógica para aprobar
                 messages.add_message(request, messages.SUCCESS, 'La solicitud fue aprobada')
                 return HttpResponseRedirect(reverse('aprobarSolicitud'))
             else:
                 print(form.errors)
         else:
-            form = AprobarSolicitudForm()  # Utiliza el formulario de aprobación
+            form = AprobarSolicitudForm()
         
         context = {
             'form': form,
