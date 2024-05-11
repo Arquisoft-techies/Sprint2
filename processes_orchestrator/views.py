@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .logic.solicitudes_logic import crear_solicitud, get_solicitudes, get_solicitud, aprobar_solicitud
 from django.contrib.auth.decorators import login_required
+from .forms import SolicitudForm, AprobarSolicitudForm
 
 def offers_view(request: HttpRequest):
     """if request.method == 'POST':
@@ -70,7 +71,7 @@ def solicitud_approve(request):
     role = getRole(request)
     if role == "Analista de Credito":
         if request.method == 'POST':
-            form = SolicitudForm(request.POST)
+            form = AprobarSolicitudForm(request.POST)  # Utiliza el formulario de aprobación
             if form.is_valid():
                 aprobar_solicitud(form)
                 messages.add_message(request, messages.SUCCESS, 'La solicitud fue aprobada')
@@ -78,7 +79,7 @@ def solicitud_approve(request):
             else:
                 print(form.errors)
         else:
-            form = SolicitudForm()
+            form = AprobarSolicitudForm()  # Utiliza el formulario de aprobación
         
         context = {
             'form': form,
