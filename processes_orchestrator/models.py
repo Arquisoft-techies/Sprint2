@@ -8,4 +8,4 @@ class Solicitud(models.Model):
     status =  models.BooleanField(default=False)
 
     def __str__(self):
-        return '%s %s' % (self.value, self.unit)
+        return '{}'.format(self.Id)
