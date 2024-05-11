@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from processes_orchestrator.views import offers_view
+#from processes_orchestrator.views import offers_view
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('health/', views.health_check, name='health'),
-    path('solicitud/', offers_view, name='solicitud'),
+    #path('solicitud/', name='solicitud'),
     path(r'', include('django.contrib.auth.urls')),
     path(r'', include('social_django.urls')),
 ]
