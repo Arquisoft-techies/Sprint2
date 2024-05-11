@@ -33,7 +33,7 @@ def solicitud_list(request):
         context = {
             'solicitud_list': solicitudes
         }
-        return render(request, 'Solicitud/solicitud.html', context)
+        return render(request, 'solicitudes.html', context)
     else:
         return HttpResponse("Unauthorized User")
 
@@ -43,7 +43,7 @@ def single_solicitud(request, id=0):
     context = {
         'solicitud': solicitud
     }
-    return render(request, 'Solicitud/solicitud.html', context)
+    return render(request, 'solicitud.html', context)
 
 @login_required
 def solicitud_create(request):
