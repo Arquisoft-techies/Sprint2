@@ -28,7 +28,7 @@ def offers_view(request: HttpRequest):
 @login_required
 def solicitud_list(request):
     role = getRole(request)
-    if role == "Cliente":
+    if role == "Analista de Credito":
         solicitudes = get_solicitudes()
         context = {
             'solicitud_list': solicitudes
@@ -85,6 +85,6 @@ def solicitud_approve(request):
         context = {
             'form': form,
         }
-        return render(request, 'aprobarSolicitud.html', context)
+        return render(request, 'Solicitud/solicitudes.html', context)
     else:
         return HttpResponse("Unauthorized User")
