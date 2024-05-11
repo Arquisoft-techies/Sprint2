@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Login(models.Model):
-    
+    Id = models.AutoField(primary_key=True)
     nombres = models.CharField(max_length = 50) 
     apellidos = models.CharField(max_length = 50) 
     pais =  models.CharField(max_length = 50) 
@@ -13,6 +13,7 @@ class Login(models.Model):
         return '%s %s' % (self.value, self.value)
 
 class Signup(models.Model):
+    Id = models.AutoField(primary_key=True)
     profesion = models.CharField(max_length = 50)
     actividadEconomica = models.CharField(max_length = 50) 
     empresa = models.CharField(max_length = 50) 
