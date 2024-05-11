@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Login(models.Model):
+    
     nombres = models.CharField(max_length = 50) 
     apellidos = models.CharField(max_length = 50) 
     pais =  models.CharField(max_length = 50) 
