@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 from .forms import SolicitudForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from sprint.auth0backend import getRole
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -73,19 +73,18 @@ def solicitud_approve(request):
         if request.method == 'POST':
             form = AprobarSolicitudForm(request.POST)
             if form.is_valid():
-                solicitud_id = form.cleaned_data['Id']  # Asegúrate de obtener correctamente el ID de la solicitud desde el formulario
-                if aprobar_solicitud(solicitud_id):
-                    # Si la solicitud se aprueba correctamente, redirige a la lista de solicitudes
-                    return redirect('solicitudes')
-                else:
-                    # Maneja el caso en que la solicitud no existe o no se puede aprobar
-                    messages.error(request, 'No se pudo aprobar la solicitud.')
+                solicitud_id = form.cleaned_data['solicitud_id'] 
+                aprobar_solicitud(solicitud_id)  
+                messages.add_message(request, messages.SUCCESS, 'La solicitud fue aprobada')
+                return HttpResponseRedirect(reverse('aprobarSolicitud'))
+            else:
+                print(form.errors)
         else:
             form = AprobarSolicitudForm()
         
         context = {
             'form': form,
         }
-        return render(request, 'aprobarSolicitud.html', context)
+        return render(request, 'solicitudes.html', context)
     else:
         return HttpResponse("Unauthorized User")
