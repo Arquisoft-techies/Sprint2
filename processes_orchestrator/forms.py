@@ -2,6 +2,7 @@ from django import forms
 from .models import Solicitud
 
 class SolicitudForm(forms.ModelForm):
+    Id = forms.IntegerField(label='ID de Solicitud', required=True)
     class Meta:
         model = Solicitud
         fields = [
