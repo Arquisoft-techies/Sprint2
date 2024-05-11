@@ -78,7 +78,7 @@ def solicitud_approve(request):
             else:
                 print(form.errors)
         else:
-            form = SolicitudForm()
+            return render(request, 'Solicitud/solicitudes.html', context)
 
         context = {
             'form': form,
