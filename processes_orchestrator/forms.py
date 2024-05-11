@@ -5,9 +5,17 @@ class SolicitudForm(forms.ModelForm):
     class Meta:
         model = Solicitud
         fields = [
-            'Id'
+            'Id',
+            'nombre',
+            'apellido',
+            'ingresos',
+            'status',
         ]
 
         labels = {
             'Id' : 'Id',
+            'nombre': 'Nombre',
+            'apellido': 'Apellido',
+            'ingresos': 'Ingresos',
+            'status': 'Status',
         }
