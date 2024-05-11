@@ -21,7 +21,8 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('health/', views.health_check, name='health'),
-    #path('solicitud/', name='solicitud'),
+    #path('solicitud/', offers_view, name='solicitud'),
     path(r'', include('django.contrib.auth.urls')),
     path(r'', include('social_django.urls')),
+    path('', views.index),
 ]
