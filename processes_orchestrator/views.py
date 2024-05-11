@@ -65,3 +65,24 @@ def solicitud_create(request):
         return render(request, 'crearSolicitud.html', context)
     else:
         return HttpResponse("Unauthorized User")
+    
+def solicitud_approve(request):
+    role = getRole(request)
+    if role == "Analista de Credito":
+        if request.method == 'POST':
+            form = SolicitudForm(request.POST)
+            if form.is_valid():
+                aprobar_solicitud(form)
+                messages.add_message(request, messages.SUCCESS, 'La solicitud fue aprobada')
+                return HttpResponseRedirect(reverse('aprobarSolicitud'))
+            else:
+                print(form.errors)
+        else:
+            form = SolicitudForm()
+
+        context = {
+            'form': form,
+        }
+        return render(request, 'aprobarSolicitud.html', context)
+    else:
+        return HttpResponse("Unauthorized User")

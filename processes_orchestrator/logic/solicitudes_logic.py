@@ -13,5 +13,11 @@ def crear_solicitud(form):
     solicitud.save()
     return ()
 
-def aprobar_solicitud():
-    return ()
+def aprobar_solicitud(id):
+    try:
+        solicitud = Solicitud.objects.get(id=id)
+        solicitud.status = True  
+        solicitud.save()  
+        return True  
+    except Solicitud.DoesNotExist:
+        return False  
