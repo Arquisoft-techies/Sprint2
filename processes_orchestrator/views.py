@@ -24,12 +24,12 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def solicitud_list(request):
     role = getRole(request)
-    if role == "Gerencia Campus":
+    if role == "Cliente":
         solicitudes = get_solicitudes()
         context = {
             'solicitud_list': solicitudes
         }
-        return render(request, 'Solicitud/solicitudes.html', context)
+        return render(request, 'Solicitud/solicitud.html', context)
     else:
         return HttpResponse("Unauthorized User")
 
@@ -44,7 +44,7 @@ def single_solicitud(request, id=0):
 @login_required
 def solicitud_create(request):
     role = getRole(request)
-    if role == "Gerencia Campus":
+    if role == "Cliente":
         if request.method == 'POST':
             form = SolicitudForm(request.POST)
             if form.is_valid():
