@@ -66,7 +66,8 @@ def solicitud_create(request):
         return render(request, 'crearSolicitud.html', context)
     else:
         return HttpResponse("Unauthorized User")
-    
+
+@login_required  
 def solicitud_approve(request):
     role = getRole(request)
     if role == "Analista de Credito":
