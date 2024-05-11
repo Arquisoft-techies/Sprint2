@@ -155,6 +155,6 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
     'role', 
 ] 
 AUTHENTICATION_BACKENDS = { 
-    'monitoring.auth0backend.Auth0', 
+    'sprint.auth0backend.Auth0', 
     'django.contrib.auth.backends.ModelBackend', 
 }
