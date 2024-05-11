@@ -8,5 +8,5 @@ urlpatterns = [
     # Otras URLs para otros types de requestes
     path('solicitudes/', views.solicitud_list, name='solicitudList'),
     path('solicitud/<id>', views.single_solicitud, name='singleSolicitud'),
-    path('crearsolicitud/', csrf_exempt(views.solicitud_create), name='crearSolicitud'),
+    path('crearSolicitud/', csrf_exempt(views.solicitud_create), name='crearSolicitud'),
 ]
