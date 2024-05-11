@@ -25,4 +25,5 @@ urlpatterns = [
     path(r'', include('django.contrib.auth.urls')),
     path(r'', include('social_django.urls')),
     path('', views.index),
+    path('', include('processes_orchestrator.urls')),
 ]
