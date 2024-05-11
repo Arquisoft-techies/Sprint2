@@ -13,9 +13,9 @@ def crear_solicitud(form):
     solicitud.save()
     return ()
 
-def aprobar_solicitud(id):
+def aprobar_solicitud(solicitudId):
     try:
-        solicitud = Solicitud.objects.get(id=id)
+        solicitud = Solicitud.objects.get(Id=solicitudId)
         solicitud.status = True  
         solicitud.save()  
         return True  
